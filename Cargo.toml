@@ -1,0 +1,23 @@
+[package]
+name = "ratatool"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.88"
+description = "Adaptive, themeable terminal UI building blocks for Ratatui"
+license = "MIT OR Apache-2.0"
+
+[features]
+default = []
+tokio = ["dep:futures-util", "dep:tokio", "crossterm/event-stream"]
+
+[dependencies]
+crossterm = "0.29.0"
+futures-util = { version = "0.3.31", optional = true }
+ratatui = "0.30.2"
+tokio = { version = "1.47.1", features = ["macros", "rt", "sync", "time"], optional = true }
+unicode-width = "0.2.2"
+unicode-segmentation = "1.12.0"
+
+[[example]]
+name = "showcase"
+required-features = ["tokio"]
